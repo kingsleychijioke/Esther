@@ -1,0 +1,557 @@
+.final-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  background: radial-gradient(
+    circle at 50% 45%,
+    #24132c 0%,
+    #100914 35%,
+    #050407 75%
+  );
+
+  isolation: isolate;
+}
+
+.restart-button {
+  position: relative;
+
+  z-index: 50;
+
+  margin-top: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 24px;
+
+  border: 1px solid rgba(255, 159, 211, 0.35);
+
+  border-radius: 999px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  background: rgba(255, 255, 255, 0.045);
+
+  backdrop-filter: blur(18px);
+
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  box-shadow: 0 0 40px rgba(255, 90, 180, 0.08);
+}
+
+.restart-button span {
+  color: #ff9fd4;
+
+  font-size: 18px;
+}
+
+.restart-button:hover {
+  border-color: rgba(255, 159, 211, 0.8);
+
+  box-shadow: 0 0 45px rgba(255, 90, 180, 0.2);
+}
+/* =========================================
+   ATMOSPHERE
+========================================= */
+
+.final-page::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -30%;
+
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 86, 180, 0.08),
+    transparent,
+    rgba(142, 94, 255, 0.08),
+    transparent
+  );
+
+  animation: finalRotate 20s linear infinite;
+
+  z-index: -4;
+}
+
+@keyframes finalRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.final-vignette {
+  position: absolute;
+
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse,
+    transparent 35%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+.final-noise {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.035;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+
+  pointer-events: none;
+
+  z-index: 30;
+}
+
+/* =========================================
+   STARS
+========================================= */
+
+.final-stars {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+}
+
+.final-stars span {
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow: 0 0 12px white;
+}
+
+/* =========================================
+   MEMORY PHOTOS
+========================================= */
+
+.final-memories {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  perspective: 1400px;
+
+  z-index: 1;
+}
+
+.final-memory {
+  position: absolute;
+
+  width: 170px;
+  height: 220px;
+
+  padding: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.025)
+  );
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(255, 100, 190, 0.06),
+    inset 0 1px rgba(255, 255, 255, 0.12);
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  will-change: transform, opacity;
+}
+
+.final-memory video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.78;
+
+  filter: saturate(0.75) contrast(1.08) brightness(0.85);
+
+  transform: scale(1.04);
+
+  transition:
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.2s ease,
+    opacity 1.2s ease;
+
+  pointer-events: none;
+}
+
+.final-memory:hover video {
+  transform: scale(1.1);
+
+  opacity: 0.95;
+
+  filter: saturate(1) contrast(1.05) brightness(1);
+}
+
+.memory-shine {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.18),
+    transparent 60%
+  );
+
+  transform: translateX(-100%);
+
+  animation: memoryShine 5s infinite;
+}
+
+@keyframes memoryShine {
+  60%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.memory-1 {
+  left: 8%;
+  top: 15%;
+
+  transform: rotate(-12deg);
+}
+
+.memory-2 {
+  right: 8%;
+  top: 13%;
+
+  transform: rotate(10deg);
+}
+
+.memory-3 {
+  left: 4%;
+  bottom: 12%;
+
+  transform: rotate(8deg);
+}
+
+.memory-4 {
+  right: 5%;
+  bottom: 10%;
+
+  transform: rotate(-9deg);
+}
+
+.memory-5 {
+  left: 50%;
+  top: 4%;
+
+  width: 130px;
+  height: 165px;
+
+  transform: translateX(-50%) rotate(4deg);
+}
+
+/* =========================================
+   CENTER CONTENT
+========================================= */
+
+.final-content {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(760px, 100%);
+
+  text-align: center;
+}
+
+.final-symbol {
+  width: 55px;
+  height: 55px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 159, 211, 0.3);
+
+  border-radius: 50%;
+
+  color: #ff9fd4;
+
+  box-shadow: 0 0 50px rgba(255, 80, 180, 0.2);
+
+  animation: symbolGlow 3s ease-in-out infinite;
+}
+
+@keyframes symbolGlow {
+  50% {
+    box-shadow: 0 0 80px rgba(255, 80, 180, 0.45);
+  }
+}
+
+.final-eyebrow {
+  color: rgba(255, 159, 211, 0.7);
+
+  font-size: 9px;
+
+  letter-spacing: 0.4em;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.final-content h1 {
+  margin: 18px 0 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(70px, 11vw, 140px);
+
+  font-weight: 400;
+
+  line-height: 0.75;
+
+  letter-spacing: -0.05em;
+
+  color: white;
+
+  text-shadow: 0 0 70px rgba(255, 100, 190, 0.2);
+}
+
+.final-content h1 span {
+  background: linear-gradient(120deg, #fff, #ff9ed4, #c6a5ff, #fff);
+
+  background-size: 300%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation: finalText 8s linear infinite;
+}
+
+@keyframes finalText {
+  to {
+    background-position: 300%;
+  }
+}
+
+/* =========================================
+   LINE
+========================================= */
+
+.final-line {
+  height: 1px;
+
+  margin: 35px auto;
+
+  max-width: 100px;
+
+  background: linear-gradient(90deg, transparent, #ff9ed4, transparent);
+
+  box-shadow: 0 0 20px rgba(255, 100, 190, 0.5);
+}
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.final-message {
+  width: min(560px, 100%);
+
+  margin: 0 auto;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 14px;
+
+  line-height: 1.85;
+}
+
+.final-message em {
+  color: #ff9ed4;
+
+  font-style: normal;
+}
+
+.final-message strong {
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  text-shadow: 0 0 25px rgba(255, 100, 190, 0.4);
+}
+
+/* =========================================
+   SIGNATURE
+========================================= */
+
+.final-signature {
+  margin-top: 35px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  font-style: italic;
+}
+
+.final-signature span {
+  display: inline-block;
+
+  margin-left: 8px;
+
+  color: #ff78ba;
+
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  50% {
+    transform: scale(1.35);
+  }
+}
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.final-bottom {
+  position: absolute;
+
+  z-index: 25;
+
+  bottom: 28px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  white-space: nowrap;
+
+  color: rgba(255, 255, 255, 0.22);
+
+  font-size: 7px;
+
+  letter-spacing: 0.3em;
+}
+
+.final-bottom i {
+  width: 25px;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .final-page {
+    padding: 70px 18px;
+  }
+
+  .final-content h1 {
+    font-size: clamp(65px, 18vw, 100px);
+  }
+
+  .final-message {
+    font-size: 13px;
+  }
+
+  .final-memory {
+    width: 105px;
+    height: 140px;
+
+    opacity: 0.45;
+  }
+
+  .memory-1 {
+    left: -20px;
+    top: 12%;
+  }
+
+  .memory-2 {
+    right: -20px;
+    top: 15%;
+  }
+
+  .memory-3 {
+    left: -25px;
+    bottom: 12%;
+  }
+
+  .memory-4 {
+    right: -25px;
+    bottom: 15%;
+  }
+
+  .memory-5 {
+    top: 3%;
+
+    width: 85px;
+    height: 110px;
+  }
+
+  .final-bottom {
+    bottom: 15px;
+
+    font-size: 6px;
+
+    gap: 8px;
+  }
+}

@@ -1,0 +1,67 @@
+.intro-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  text-align: center;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 20;
+
+  width: min(900px, 100%);
+}
+
+.intro-page h1 {
+  font-size: clamp(80px, 16vw, 190px);
+
+  line-height: 0.75;
+
+  background: linear-gradient(120deg, #fff, #ff9ed2, #d7b8ff, #fff);
+
+  background-size: 300%;
+
+  animation: introGradient 8s linear infinite;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  text-shadow: 0 0 50px rgba(255, 93, 180, 0.15);
+}
+
+.intro-page h2 {
+  margin-top: 30px;
+
+  font-size: clamp(30px, 5vw, 65px);
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.intro-message {
+  max-width: 600px;
+
+  margin: 25px auto 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+@keyframes introGradient {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 300%;
+  }
+}

@@ -1,0 +1,1040 @@
+/* =========================================================
+   WISH PAGE
+========================================================= */
+
+.wish-page {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 70px 20px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at 50% 52%,
+      rgba(255, 70, 170, 0.14),
+      transparent 35%
+    ),
+    #050309;
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.wish-glow {
+  position: absolute;
+
+  width: min(650px, 90vw);
+  height: min(650px, 90vw);
+
+  left: 50%;
+  top: 55%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(255, 99, 180, 0.2), transparent 70%);
+
+  filter: blur(35px);
+
+  pointer-events: none;
+
+  animation: wishGlow 5s ease-in-out infinite;
+}
+
+@keyframes wishGlow {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.wish-stars {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wish-stars span {
+  position: absolute;
+
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  box-shadow:
+    0 0 8px #fff,
+    0 0 15px rgba(255, 180, 230, 0.8);
+
+  opacity: 0.5;
+
+  animation: wishStar 4s ease-in-out infinite;
+}
+
+@keyframes wishStar {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(0.6);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.8);
+  }
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.wish-content,
+.wish-reveal {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(900px, 100%);
+
+  margin: 0 auto;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.wish-content h1 {
+  margin: 12px 0 0;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: clamp(65px, 12vw, 145px);
+
+  line-height: 0.78;
+
+  font-weight: 400;
+
+  letter-spacing: -0.04em;
+
+  background: linear-gradient(120deg, #ffffff, #ff9ed4, #c8a7ff, #ffffff);
+
+  background-size: 300%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation: wishTitle 8s linear infinite;
+}
+
+@keyframes wishTitle {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 300%;
+  }
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.wish-intro {
+  width: min(500px, 90%);
+
+  margin: 30px auto;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   CAKE SCENE
+========================================================= */
+
+.cake-scene {
+  position: relative;
+
+  width: 500px;
+  height: 350px;
+
+  flex: 0 0 auto;
+
+  margin: 0 auto;
+
+  perspective: 1200px;
+
+  isolation: isolate;
+}
+
+/* =========================================================
+   CAKE AURA
+========================================================= */
+
+.cake-aura {
+  position: absolute;
+
+  z-index: 0;
+
+  left: 50%;
+  top: 55%;
+
+  width: 320px;
+  height: 260px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 99, 181, 0.24),
+    rgba(255, 70, 170, 0.08) 45%,
+    transparent 72%
+  );
+
+  filter: blur(25px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   CAKE
+========================================================= */
+
+.cake {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 50%;
+  bottom: 65px;
+
+  width: 310px;
+  height: 210px;
+
+  transform: translateX(-50%) rotateX(8deg);
+
+  transform-style: preserve-3d;
+
+  transform-origin: center bottom;
+}
+
+/* =========================================================
+   CAKE TOP
+========================================================= */
+
+.cake-top {
+  position: absolute;
+
+  z-index: 4;
+
+  left: 0;
+  top: 35px;
+
+  width: 310px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    ellipse at 40% 25%,
+    #fff5fa 0%,
+    #ffe0ed 20%,
+    #f7a7cc 60%,
+    #c96399 100%
+  );
+
+  box-shadow:
+    inset 0 -15px 20px rgba(100, 20, 70, 0.2),
+    inset 0 5px 15px rgba(255, 255, 255, 0.45),
+    0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   CAKE BODY
+========================================================= */
+
+.cake-body {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 310px;
+  height: 150px;
+
+  border-radius: 25px 25px 45px 45px;
+
+  background: linear-gradient(
+    90deg,
+    #a92f6e 0%,
+    #c94f8b 25%,
+    #e47fb0 48%,
+    #ca4f8c 70%,
+    #92265f 100%
+  );
+
+  box-shadow:
+    inset 0 15px 20px rgba(255, 255, 255, 0.15),
+    inset -20px 0 35px rgba(60, 0, 40, 0.18),
+    0 35px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   DRIPS
+========================================================= */
+
+.cake-drip {
+  position: absolute;
+
+  top: 0;
+
+  width: 35px;
+
+  border-radius: 0 0 20px 20px;
+
+  background: linear-gradient(180deg, #fff0f7, #ffd5e8);
+
+  box-shadow: 0 3px 5px rgba(100, 20, 70, 0.12);
+}
+
+.drip-one {
+  left: 40px;
+  height: 55px;
+}
+
+.drip-two {
+  left: 105px;
+  height: 35px;
+}
+
+.drip-three {
+  right: 90px;
+  height: 50px;
+}
+
+.drip-four {
+  right: 35px;
+  height: 30px;
+}
+
+/* =========================================================
+   RIBBON
+========================================================= */
+
+.cake-ribbon {
+  position: absolute;
+
+  left: 0;
+  top: 80px;
+
+  width: 100%;
+  height: 18px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 205, 229, 0.65),
+    rgba(255, 230, 242, 0.95),
+    rgba(255, 205, 229, 0.65)
+  );
+
+  box-shadow: 0 2px 5px rgba(100, 20, 70, 0.1);
+}
+
+/* =========================================================
+   PLATE
+========================================================= */
+
+.cake-plate {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 50%;
+  bottom: 35px;
+
+  width: 390px;
+  height: 50px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: linear-gradient(180deg, #ffffff, #ded5df 45%, #a99baa 100%);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 5px 8px rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   CANDLES
+   IMPORTANT:
+   THE CANDLE CONTAINER NOW STARTS AT THE CAKE TOP.
+========================================================= */
+
+.candles {
+  position: absolute;
+
+  z-index: 20;
+
+  left: 10%;
+
+  /*
+    Cake top starts at 35px.
+    Candle bottom is aligned exactly with that point.
+  */
+  top: -65px;
+
+  height: 100px;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   INDIVIDUAL CANDLE
+========================================================= */
+
+.candle {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 34px;
+  height: 100px;
+
+  padding: 0;
+
+  margin-left: 6px;
+
+  border: 0;
+
+  background: transparent;
+
+  transform: translateX(-50%);
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  appearance: none;
+
+  z-index: 25;
+}
+
+/* =========================================================
+   CANDLE BODY
+========================================================= */
+
+.candle-stick {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 22px;
+  height: 75px;
+
+  transform: translateX(-50%);
+
+  border-radius: 5px 5px 3px 3px;
+
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffffff 0px,
+    #ffffff 8px,
+    #ff8fbd 8px,
+    #ff8fbd 15px
+  );
+
+  box-shadow:
+    inset 3px 0 5px rgba(255, 255, 255, 0.5),
+    4px 0 8px rgba(120, 20, 70, 0.18);
+}
+
+/* =========================================================
+   WICK
+========================================================= */
+
+.candle-stick i {
+  position: absolute;
+
+  left: 50%;
+  top: -15px;
+
+  width: 2px;
+  height: 10px;
+
+  transform: translateX(-50%);
+
+  border-radius: 2px;
+
+  background: #30202c;
+}
+
+/* =========================================================
+   FLAME
+========================================================= */
+
+.flame-wrap {
+  position: absolute;
+  
+  top: -8px;
+
+  width: 38px;
+  height: 45px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+
+  z-index: 30;
+}
+
+.flame {
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 22px;
+  height: 35px;
+
+  transform: translateX(-50%) rotate(45deg);
+
+  transform-origin: bottom center;
+
+  border-radius: 50% 50% 50% 0;
+
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fff4a4 28%,
+    #ffd56b 50%,
+    #ff7b35 100%
+  );
+
+  box-shadow:
+    0 0 12px #ffd56b,
+    0 0 30px #ff8c42,
+    0 0 60px rgba(255, 100, 40, 0.5);
+}
+
+/* =========================================================
+   SMOKE
+========================================================= */
+
+.smoke {
+  position: absolute;
+
+  left: 50%;
+  top: -5px;
+
+  transform: translateX(-50%);
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 35px;
+
+  filter: blur(2px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   INSTRUCTION
+========================================================= */
+
+.wish-instruction {
+  margin-top: 5px;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 10px;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   WISH BUTTON
+========================================================= */
+
+.wish-button {
+  margin-top: 25px;
+
+  padding: 15px 28px;
+
+  border: 1px solid rgba(255, 159, 211, 0.25);
+
+  border-radius: 999px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(15px);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.wish-button:not(:disabled):hover {
+  border-color: rgba(255, 159, 211, 0.8);
+
+  background: rgba(255, 120, 190, 0.08);
+
+  box-shadow: 0 0 35px rgba(255, 82, 177, 0.2);
+}
+
+.wish-button:disabled {
+  opacity: 0.25;
+
+  cursor: not-allowed;
+}
+
+.wish-button span {
+  margin-left: 10px;
+
+  color: #ff9fd4;
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.wish-reveal h2 {
+  margin: 15px 0 0;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: clamp(65px, 11vw, 135px);
+
+  line-height: 0.76;
+
+  font-weight: 400;
+
+  color: white;
+
+  text-shadow: 0 0 50px rgba(255, 120, 190, 0.3);
+}
+
+.reveal-eyebrow {
+  color: #ff9fd4;
+
+  font-size: 9px;
+
+  letter-spacing: 0.35em;
+}
+
+.wish-message {
+  width: min(550px, 100%);
+
+  margin: 35px auto 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+.wish-message strong {
+  color: white;
+
+  font-weight: 400;
+}
+
+/* =========================================================
+   BURST
+========================================================= */
+
+.wish-burst {
+  position: absolute;
+
+  left: 50%;
+  top: 40%;
+
+  width: 200px;
+  height: 200px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    white,
+    #ff9ed4 15%,
+    rgba(255, 80, 180, 0.2) 40%,
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.wish-confetti {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.wish-confetti span {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  color: #ff9fd4;
+
+  font-size: 16px;
+
+  text-shadow: 0 0 15px rgba(255, 80, 180, 0.8);
+}
+
+/* =========================================================
+   FINAL BUTTON
+========================================================= */
+
+.final-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 35px;
+
+  padding: 16px 26px;
+
+  border: 1px solid rgba(255, 159, 211, 0.35);
+
+  border-radius: 999px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(15px);
+
+  cursor: pointer;
+}
+
+.final-button span {
+  color: #ff9fd4;
+
+  font-size: 18px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+  .wish-page {
+    min-height: 100svh;
+
+    padding: 55px 15px 45px;
+  }
+
+  .wish-content h1 {
+    font-size: clamp(58px, 17vw, 95px);
+  }
+
+  .wish-intro {
+    margin: 25px auto;
+  }
+
+  .cake-scene {
+    width: 420px;
+    height: 320px;
+
+    transform: scale(0.85);
+
+    transform-origin: center top;
+
+    margin-bottom: -45px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+/* =========================================================
+   MOBILE CAKE POSITION FIX
+========================================================= */
+
+@media (max-width: 600px) {
+  .wish-page {
+    align-items: flex-start;
+    min-height: 100svh;
+
+    padding: 42px 10px 35px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .wish-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* TITLE */
+  .wish-content h1 {
+    font-size: clamp(52px, 17vw, 82px);
+    line-height: 0.8;
+
+    margin-top: 10px;
+  }
+
+  /* INTRO TEXT */
+  .wish-intro {
+    width: min(330px, 90%);
+
+    margin: 22px auto 0;
+
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* =====================================================
+     CAKE
+     Move the whole cake section DOWN so the candles
+     don't touch/overlap the intro.
+  ===================================================== */
+
+  .cake-scene {
+    position: relative;
+
+    width: 360px;
+    height: 290px;
+
+    /*
+      IMPORTANT:
+      This creates space between the intro and candles.
+    */
+    margin: 100px auto -45px;
+
+    transform: scale(0.82);
+
+    transform-origin: center top;
+
+    flex-shrink: 0;
+  }
+
+  /* Keep cake itself centered */
+  .cake {
+    left: 50%;
+    bottom: 65px;
+
+    transform: translateX(-50%) rotateX(8deg);
+  }
+
+  /* Keep plate centered */
+  .cake-plate {
+    left: 50%;
+  }
+
+  /*
+    Candles stay attached to the cake.
+    DO NOT move them higher than this.
+  */
+  .candles {
+    top: -50px;
+  }
+
+  /* =====================================================
+     INSTRUCTION
+  ===================================================== */
+
+  .wish-instruction {
+    position: relative;
+
+    margin-top: 0;
+
+    width: 100%;
+
+    font-size: 8px;
+    letter-spacing: 0.2em;
+
+    text-align: center;
+  }
+
+  /* BUTTON */
+  .wish-button {
+    margin-top: 20px;
+
+    padding: 14px 24px;
+  }
+
+  /* =====================================================
+     REVEAL
+  ===================================================== */
+
+  .wish-message {
+    width: min(340px, 92%);
+
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .wish-reveal h2 {
+    font-size: clamp(55px, 17vw, 90px);
+  }
+
+  .final-button {
+    width: min(340px, 100%);
+
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+  .wish-page {
+    padding-top: 38px;
+  }
+
+  .wish-content h1 {
+    font-size: 54px;
+  }
+
+  .wish-intro {
+    margin-top: 20px;
+  }
+
+  .cake-scene {
+    width: 340px;
+    height: 275px;
+
+    /*
+      More space above the cake/candles.
+    */
+    margin-top: 65px;
+    margin-bottom: -65px;
+
+    transform: scale(0.72);
+
+    transform-origin: center top;
+  }
+
+  .wish-instruction {
+    font-size: 7px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 350px) {
+  .cake-scene {
+    width: 340px;
+
+    margin-top: 60px;
+    margin-bottom: -80px;
+
+    transform: scale(0.65);
+  }
+
+  .wish-content h1 {
+    font-size: 50px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+  .wish-page {
+    padding-top: 40px;
+  }
+
+  .wish-content h1 {
+    font-size: 54px;
+  }
+
+  .cake-scene {
+    width: 340px;
+    height: 275px;
+
+    transform: scale(0.72);
+
+    margin-bottom: -70px;
+  }
+
+  .wish-instruction {
+    font-size: 7px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 350px) {
+  .cake-scene {
+    transform: scale(0.65);
+
+    margin-bottom: -85px;
+  }
+
+  .wish-content h1 {
+    font-size: 50px;
+  }
+}

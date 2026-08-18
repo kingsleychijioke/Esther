@@ -1,0 +1,598 @@
+.gift-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  perspective: 1600px;
+}
+
+/* =========================================
+   AMBIENT
+========================================= */
+
+.gift-ambient {
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 77, 170, 0.18),
+    rgba(161, 91, 255, 0.07) 35%,
+    transparent 70%
+  );
+
+  filter: blur(30px);
+
+  animation: ambientPulse 5s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.gift-intro {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(800px, 100%);
+}
+
+.gift-intro h1 {
+  margin-top: 10px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(70px, 11vw, 145px);
+
+  line-height: 0.78;
+
+  letter-spacing: -0.04em;
+
+  background: linear-gradient(120deg, #fff, #ff9ed4, #c0a1ff, #fff);
+
+  background-size: 300%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation: giftTitle 8s linear infinite;
+}
+
+@keyframes giftTitle {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 300%;
+  }
+}
+
+.gift-description {
+  width: min(500px, 100%);
+
+  margin: 30px auto 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 13px;
+
+  line-height: 1.9;
+}
+
+/* =========================================
+   GIFT OBJECT
+========================================= */
+
+.gift-object {
+  position: relative;
+
+  width: 250px;
+  height: 250px;
+
+  margin: 70px auto 0;
+
+  display: block;
+
+  background: transparent;
+
+  transform-style: preserve-3d;
+
+  perspective: 1000px;
+}
+
+.gift-box {
+  position: absolute;
+
+  left: 50%;
+  bottom: 30px;
+
+  width: 180px;
+  height: 150px;
+
+  transform: translateX(-50%) rotateX(8deg) rotateY(-8deg);
+
+  transform-style: preserve-3d;
+}
+
+/* =========================================
+   BOX BODY
+========================================= */
+
+.gift-body {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 180px;
+  height: 125px;
+
+  border-radius: 5px 5px 12px 12px;
+
+  background: linear-gradient(135deg, #9c2365, #d74791 45%, #74154c);
+
+  box-shadow:
+    inset 0 10px 20px rgba(255, 255, 255, 0.12),
+    0 30px 50px rgba(0, 0, 0, 0.45);
+
+  transform: translateZ(0);
+}
+
+/* =========================================
+   LID
+========================================= */
+
+.gift-lid {
+  position: absolute;
+
+  z-index: 4;
+
+  left: -10px;
+  top: -15px;
+
+  width: 200px;
+  height: 48px;
+
+  border-radius: 7px;
+
+  background: linear-gradient(135deg, #d54b95, #ff78ba 45%, #a52269);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+
+  transform: translateZ(20px);
+}
+
+/* =========================================
+   RIBBONS
+========================================= */
+
+.lid-ribbon {
+  position: absolute;
+
+  left: 50%;
+
+  width: 30px;
+  height: 100%;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(90deg, #ffd4e9, #fff, #efa0c7);
+}
+
+.gift-ribbon-horizontal {
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 100%;
+  height: 28px;
+
+  transform: translateY(-50%);
+
+  background: linear-gradient(90deg, #ffcde5, #fff, #e995bd);
+
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.12);
+}
+
+.gift-ribbon-vertical {
+  position: absolute;
+
+  left: 50%;
+
+  top: 0;
+
+  width: 30px;
+  height: 100%;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(90deg, #ffcde5, #fff, #e995bd);
+}
+
+/* =========================================
+   BOW
+========================================= */
+
+.bow {
+  position: absolute;
+
+  left: 50%;
+  top: -40px;
+
+  width: 80px;
+  height: 60px;
+
+  transform: translateX(-50%);
+}
+
+.bow span {
+  position: absolute;
+
+  top: 12px;
+
+  width: 48px;
+  height: 42px;
+
+  border-radius: 70% 20% 70% 20%;
+
+  background: linear-gradient(135deg, #ffb3d8, #d54b95);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.bow span:first-child {
+  left: 0;
+
+  transform: rotate(25deg);
+}
+
+.bow span:last-child {
+  right: 0;
+
+  transform: scaleX(-1) rotate(25deg);
+}
+
+.bow::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 20px;
+
+  width: 22px;
+  height: 22px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle at 30% 30%, #fff, #ff91c8);
+
+  z-index: 5;
+}
+
+/* =========================================
+   SHADOW
+========================================= */
+
+.gift-shadow {
+  position: absolute;
+
+  left: 50%;
+  bottom: 5px;
+
+  width: 210px;
+  height: 35px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  filter: blur(15px);
+}
+
+/* =========================================
+   HINT
+========================================= */
+
+.open-hint {
+  margin-top: 20px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 10px;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+.gift-particles {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 30;
+
+  pointer-events: none;
+}
+
+.gift-particles span {
+  position: absolute;
+
+  left: 50%;
+  top: 52%;
+
+  color: #ff9bd1;
+
+  font-size: clamp(12px, 2vw, 25px);
+
+  text-shadow: 0 0 15px rgba(255, 95, 180, 0.8);
+}
+
+/* =========================================
+   EXPLOSION
+========================================= */
+
+.gift-explosion {
+  position: absolute;
+
+  left: 50%;
+  top: 45%;
+
+  width: 180px;
+  height: 180px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    white 0%,
+    #ff9bd1 15%,
+    rgba(255, 87, 177, 0.3) 40%,
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================
+   OPENED GIFT
+========================================= */
+
+.opened-gift {
+  position: relative;
+
+  width: 260px;
+  height: 230px;
+
+  margin: 5% auto 40px;
+
+  transform-style: preserve-3d;
+}
+
+.opened-lid {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 30px;
+  top: 130px;
+
+  width: 200px;
+  height: 45px;
+
+  border-radius: 7px;
+
+  background: linear-gradient(135deg, #ff82bf, #a82269);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+  transform-origin: center bottom;
+}
+
+.opened-box-body {
+  position: absolute;
+
+  left: 40px;
+  bottom: 10px;
+
+  width: 180px;
+  height: 120px;
+
+  border-radius: 8px 8px 15px 15px;
+
+  background: linear-gradient(135deg, #9c2365, #d74791, #711347);
+
+  box-shadow:
+    inset 0 10px 20px rgba(255, 255, 255, 0.1),
+    0 35px 60px rgba(0, 0, 0, 0.4);
+}
+
+.heart-from-box {
+  position: absolute;
+
+  left: 50%;
+  top: -30px;
+
+  transform: translateX(-50%);
+
+  color: #ff76bb;
+
+  font-size: 100px;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0 25px #ff4da9,
+    0 0 80px rgba(255, 77, 169, 0.8);
+}
+
+/* =========================================
+   REVEAL
+========================================= */
+
+.gift-reveal {
+  position: relative;
+
+  z-index: 20;
+
+  width: min(800px, 100%);
+
+  text-align: center;
+}
+
+.reveal-copy {
+  position: relative;
+
+  z-index: 20;
+}
+
+.reveal-small {
+  color: var(--pink-soft);
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.35em;
+}
+
+.reveal-copy h2 {
+  margin-top: 15px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(55px, 8vw, 95px);
+
+  line-height: 0.82;
+
+  color: white;
+}
+
+.reveal-copy p {
+  width: min(500px, 100%);
+
+  margin: 30px auto 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+.gift-continue {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 35px;
+
+  padding: 16px 25px;
+
+  border: 1px solid rgba(255, 159, 211, 0.35);
+
+  border-radius: 999px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(20px);
+}
+
+.gift-continue span {
+  color: var(--pink-soft);
+
+  font-size: 18px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .gift-intro h1 {
+    font-size: clamp(65px, 18vw, 100px);
+  }
+
+  .gift-description {
+    font-size: 13px;
+  }
+
+  .gift-object {
+    margin-top: 55px;
+
+    transform: scale(0.9);
+  }
+
+  .gift-page {
+    padding: 70px 18px;
+  }
+
+  .opened-gift {
+    transform: scale(0.85);
+  }
+
+  .reveal-copy h2 {
+    font-size: clamp(52px, 15vw, 80px);
+  }
+
+  .reveal-copy p {
+    font-size: 13px;
+  }
+
+  .gift-continue {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
